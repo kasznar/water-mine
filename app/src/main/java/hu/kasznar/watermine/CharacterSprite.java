@@ -1,15 +1,9 @@
 package hu.kasznar.watermine;
-
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-
-
 public class CharacterSprite {
-
-
     private Bitmap image;
     private int x, y;
     private int xVelocity = 10;
@@ -23,15 +17,11 @@ public class CharacterSprite {
         y = 100;
     }
 
-
     public void draw(Canvas canvas) {
         canvas.drawBitmap(image, x, y, null);
-
-
     }
+
     public void update() {
-
-
         x += xVelocity;
         y += yVelocity;
         if ((x > screenWidth - image.getWidth()) || (x < 0)) {
@@ -40,8 +30,5 @@ public class CharacterSprite {
         if ((y > screenHeight - image.getHeight()) || (y < 0)) {
             yVelocity = yVelocity*-1;
         }
-
     }
-
-
 }

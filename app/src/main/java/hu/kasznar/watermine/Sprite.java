@@ -60,7 +60,4 @@ public class Sprite {
     public void addToY(int dy) {
         this.y += dy;
     }
-
-
-
 }

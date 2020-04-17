@@ -14,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int boardWorldX = 0;
     private int boardWorldY = 0;
 
-
     private Bitmap blockImage;
     private Bitmap blockTreasureImage;
 
@@ -45,8 +43,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
-
-
 
     private int coordinatesToPixel(int coordinates) {
 
@@ -69,7 +65,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     private void initImages() {
-
         //Block images
         int blockWidth = coordinatesToPixel(BLOCK_WIDTH);
 
@@ -78,8 +73,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         Bitmap btb = BitmapFactory.decodeResource(getResources(),R.drawable.block_tresure);
         blockTreasureImage = Bitmap.createScaledBitmap(btb, blockWidth, blockWidth, true);
-
-
 
         //Submarine images
         int submarineWidth = coordinatesToPixel(SUBMARINE_WIDTH);
@@ -90,11 +83,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         Bitmap slb = BitmapFactory.decodeResource(getResources(),R.drawable.ad_submarine_l);
         submarineLeftImage = Bitmap.createScaledBitmap(slb, submarineWidth, submarineHeight, true);
-
     }
 
     private void initBlocks() {
-
         blocks = new ArrayList<>();
 
         for (int j=0; j < 50; j++) {
@@ -228,21 +219,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 rightButton.getWidth()+rightButton.getX(),
                 rightButton.getHeight()+rightButton.getY(),
                 Color.rgb(254, 254, 2));
-
-
-
-        //Color.rgb(254, 254, 2)
-        //TODO: yeah no
-        //c.setColor(Color.WHITE);
-        //c.drawString("Money: " + submarine.getMoney() + "HUF", 5, 15);
-
-        /*
-        Paint paint = new Paint();
-        c.drawPaint(paint);
-        paint.setColor(Color.BLACK);
-        paint.setTextSize(16);
-        c.drawText("My Text", 100, 100, paint);
-        */
     }
 
     private void step() {
@@ -327,25 +303,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if (submarine.getY() > WORLD_HEIGHT  - submarine.getHeight()){
             submarine.setY(WORLD_HEIGHT - submarine.getHeight());
         }
-
-        //keep inside board
-/*
-        if (submarine.getX() < 1000) {
-            boardWorldX -= 30;
-        }
-
-        if(submarine.getX() > BOARD_WIDTH - 1000 - submarine.getWidth()){
-            boardWorldX += 30;
-        }
-
-        if (submarine.getY() < 1000) {
-            boardWorldY -= 30;
-        }
-
-        if (submarine.getY() > BOARD_HEIGHT - 1000  - submarine.getHeight()){
-            boardWorldY += 30;
-        }
-*/
 
         //move board
         boardWorldX = submarine.getX()-BOARD_WIDTH/2+ SUBMARINE_WIDTH /2;
@@ -477,8 +434,5 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if(canvas!=null) {
             doDrawing(canvas);
         }
-
     }
-
-
 }

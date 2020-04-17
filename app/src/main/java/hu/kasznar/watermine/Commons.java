@@ -1,7 +1,6 @@
 package hu.kasznar.watermine;
 
 public interface Commons {
-
     int BOARD_WIDTH = 7500;
     int BOARD_HEIGHT = 10000;
     int SCREEN_WIDTH = 1080;

@@ -6,8 +6,6 @@ import android.view.MotionEvent;
 
 
 public class Submarine extends Sprite implements Commons{
-
-
     private int dx;
     private int dy;
     private int miningStartX;
@@ -33,26 +31,9 @@ public class Submarine extends Sprite implements Commons{
 
         if (activeBlock.getMiningStatus() > 0){
             //TODO reasonable solution - should be calculated from the end of the block
-
-
             if (miningDirection == "down"){
                 x = activeBlock.getX();
             }
-
-            /*
-            if (miningDirection == "down"){
-                x = activeBlock.getX();
-                y = (int)Math.round((double)miningStartY + 1000 - (1000*Math.abs(activeBlock.getMiningStatus())) - 30);
-            }
-
-            if (miningDirection == "right"){
-                x = (int)Math.round((double)miningStartX + 1000 - (1000*Math.abs(activeBlock.getMiningStatus())) - 30);
-            }
-
-            if (miningDirection == "left"){
-                x = (int)Math.round((double)miningStartX - 1000 + 1000*Math.abs(activeBlock.getMiningStatus()) + 30);
-            }
-            */
 
             activeBlock.mineBlock(miningForce);
         }else{
